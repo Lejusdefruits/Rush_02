@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_dict.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lejusdefruits <lejusdefruits@student.42    +#+  +:+       +#+        */
+/*   By: jubrouss <jubrouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/21 17:11:34 by lejusdefrui       #+#    #+#             */
-/*   Updated: 2025/07/27 07:14:09 by lejusdefrui      ###   ########.fr       */
+/*   Created: 2025/07/21 17:11:34 by jubrouss          #+#    #+#             */
+/*   Updated: 2025/07/27 20:09:50 by jubrouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*read_whole_file(char *filename)
 	return (result);
 }
 
-t_dict *parse_readed_file(char *file_name)
+t_dict	*parse_readed_file(char *file_name)
 {
 	int		i;
 	char	*text;
@@ -90,7 +90,6 @@ t_dict *parse_readed_file(char *file_name)
 	ft_free_tab(tab);
 	return (dico);
 }
-
 
 /* void	print_dict(t_dict *dict, int size)Pour le main et les tests
 {

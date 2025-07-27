@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lejusdefruits <lejusdefruits@student.42    +#+  +:+       +#+        */
+/*   By: jubrouss <jubrouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 09:53:31 by dedavid           #+#    #+#             */
-/*   Updated: 2025/07/27 16:43:10 by lejusdefrui      ###   ########.fr       */
+/*   Updated: 2025/07/27 20:13:20 by jubrouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_H
 
 # include <fcntl.h>
-#include <unistd.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
 
@@ -45,5 +45,10 @@ int		ft_tablen(char **tab);
 int		ft_dictlen(t_dict *dict);
 t_dict	*parse_readed_file(char *filename);
 char	*find_word(t_dict *dict, int size, char *nbr);
+char	*get_word_for_number(t_dict *dictionary, int dict_size, char *number);
+char	*create_power_string(int group_position);
+int		compare_numbers_as_strings(char *a, char *b);
+char	*format_to_three_digits(char *digits);
+int		is_all_zeros(char *text);
 
 #endif
