@@ -1,18 +1,37 @@
-void	process_chunk(char *input, int i, int chunk_size,
-		t_dict *dict, int size)
+#include "./includes/ft.h"
+
+static int	get_chunk_size(char *input, int i)
 {
-	char	chunk[4];
-	int		j;
-	int		group;
-	int		len;
+	int	len;
+
+	len = ft_strlen(input);
+	if (i == 0 && len % 3)
+		return (len % 3);
+	return (3);
+}
+
+static void	fill_chunk(char *chunk, char *input, int i, int size)
+{
+	int	j;
 
 	j = 0;
-	while (j < chunk_size)
+	while (j < size)
 	{
 		chunk[j] = input[i + j];
 		j++;
 	}
 	chunk[j] = '\0';
+}
+
+void	process_chunk(char *input, int i, t_dict *dict, int size)
+{
+	char	chunk[4];
+	int		chunk_size;
+	int		group;
+	int		len;
+
+	chunk_size = get_chunk_size(input, i);
+	fill_chunk(chunk, input, i, chunk_size);
 	if (!is_all_zeros(chunk))
 	{
 		print_group_in_words(chunk, dict, size);
@@ -27,21 +46,20 @@ void	process_chunk(char *input, int i, int chunk_size,
 
 void	convert_number_to_words(char *input, t_dict *dict, int size)
 {
-	int	len;
 	int	i;
-	int	chunk_size;
 
-	len = ft_strlen(input);
-	if (len == 0)
+	if (!input || !*input)
 		return ;
 	if (get_word_for_number(dict, size, input))
 		return (ft_putstr(ft_strcat(get_word_for_number(dict, size, input), "\n")));
 	i = 0;
-	while (i < len)
+	while (input[i])
 	{
-		chunk_size = (i == 0 && len % 3) ? len % 3 : 3;
-		process_chunk(input, i, chunk_size, dict, size);
-		i += chunk_size;
+		process_chunk(input, i, dict, size);
+		if (i == 0 && ft_strlen(input) % 3)
+			i += ft_strlen(input) % 3;
+		else
+			i += 3;
 	}
 	ft_putstr("\n");
 }
