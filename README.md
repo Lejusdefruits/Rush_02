@@ -42,7 +42,7 @@ Le programme peut prendre :
 ## Format du dictionnaire
 
 ```
-<number>[espaces] : [espaces]<texte>
+<number>[espaces] : [espaces]<texte>\n
 ```
 
 exemple :
